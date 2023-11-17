@@ -34,7 +34,7 @@ public class DocumentList {
         } else {
             DocumentNodo pointer = getHead();
             while (pointer.getNext() != null) {
-                pointer = pointer.getNext;
+                pointer = pointer.getNext();
             }
             pointer.setNext(document);
         }
