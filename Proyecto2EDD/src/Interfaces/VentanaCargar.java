@@ -5,6 +5,11 @@
  */
 package Interfaces;
 
+import funciones.Global;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author pjroj
@@ -16,7 +21,7 @@ public class VentanaCargar extends javax.swing.JFrame {
      */
     public VentanaCargar() {
         initComponents();
-        setSize(720,440);
+        setSize(720, 440);
         setResizable(false);
         setTitle("Inicio - Cargar archivos");
         setLocationRelativeTo(null);
@@ -35,9 +40,9 @@ public class VentanaCargar extends javax.swing.JFrame {
         Exit = new javax.swing.JButton();
         Fondo1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        select_csv = new javax.swing.JButton();
         Fondo2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        nextpage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -61,26 +66,26 @@ public class VentanaCargar extends javax.swing.JFrame {
 
         getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 440));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Cargar archivo de usuarios");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        select_csv.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        select_csv.setText("Cargar archivo de usuarios");
+        select_csv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                select_csvActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 290, 60));
+        getContentPane().add(select_csv, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 290, 60));
 
         Fondo2.setBackground(new java.awt.Color(102, 153, 255));
         Fondo2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("continuar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        nextpage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nextpage.setText("continuar");
+        nextpage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                nextpageActionPerformed(evt);
             }
         });
-        Fondo2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 220, 30));
+        Fondo2.add(nextpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 220, 30));
 
         getContentPane().add(Fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 390, 440));
 
@@ -89,19 +94,42 @@ public class VentanaCargar extends javax.swing.JFrame {
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void nextpageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextpageActionPerformed
+        //Función para comprobar si se a seleccionado un archivo
+        if (FileIsEmpty()){
+            //SE MUESTRA UN MENSAJE DE ERROR EN CASO DE QUE NO SE HAYA SELECCIONADO NINGUN ARCHIVO
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un archivo primero");
+        }else{
+            //Cargar la siguiente ventana,VentanaInicio la que posee las acciones del programa
+            VentanaInicio menu = new VentanaInicio();
+            menu.setVisible(true);
+            this.dispose();
+            //FALTA EL CODIGO PARA LEERLO, USAR GLOBAL//
+        }
+    }//GEN-LAST:event_nextpageActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void select_csvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_csvActionPerformed
+        //Para cargar el archivo
+        JFileChooser file = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".csv", "csv");
+        file.setFileFilter(filter);
+        file.setAcceptAllFileFilterUsed(false);
+        int result = file.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            Global.setFile(file.getSelectedFile());
+        JOptionPane.showMessageDialog(null, "Su archivo a sido cargado con exito, haga click en 'CONTINUAR'");
+        //FALTA EL CODIGO PARA LEERLO//
+        
+        }
+    }//GEN-LAST:event_select_csvActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private boolean FileIsEmpty(){
+        return Global.getFile() == null;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -138,8 +166,8 @@ public class VentanaCargar extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JPanel Fondo1;
     private javax.swing.JPanel Fondo2;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton nextpage;
+    private javax.swing.JButton select_csv;
     // End of variables declaration//GEN-END:variables
 }
