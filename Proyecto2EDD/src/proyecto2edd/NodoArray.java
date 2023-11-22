@@ -4,11 +4,11 @@ package proyecto2edd;
 
 public class NodoArray {
     private Object element;
-    private Integer next;
+    private int index;
 
     public NodoArray(Object element) {
         this.element = element;
-        this.next = null;
+        this.index = 50;
     }
 
     public Object getElement() {
@@ -19,12 +19,13 @@ public class NodoArray {
         this.element = element;
     }
 
-    public Integer getNext() {
-        return next;
+    public int getIndex() {
+        return index;
     }
 
-    public void setNext(Integer next) {
-        this.next = next;
+    public void setIndex(int index) {
+        this.index = index;
     }
+
     
 }
