@@ -38,12 +38,38 @@ public class BinaryHeap {
         nodo.setIndex(nodo.getIndex() + getSize());
         size++;
         if ( getSize() -1 != 0) {
-            rearrange(nodo, getSize() -1);
+            rearrangeUp(nodo, getSize() -1);
         }
     }
     
-    public void rearrange(Object element, int index) {
+    public void rearrangeUp(Object element, int index) {
         NodoArray nodo = new NodoArray(element);
+        int pointer = index;
+        int temp = (index-1)/2;
+        while (nodo.getIndex() < getDocuments()[temp].getIndex()) {
+            getDocuments()[pointer] = getDocuments()[temp];
+            getDocuments()[temp] = nodo;
+        }
+    }
+    
+    public void rearrangeDown (Object element, int index) {
+        NodoArray nodo = new NodoArray(element);
+        int pointer = index;
+        int temp1 = (index*2)+1;
+        int temp2 = (index*2)+1;
+        if (nodo.getIndex() > getDocuments()[temp1].getIndex()) {
+            getDocuments()[pointer] = getDocuments()[temp1];
+            getDocuments()[temp1] = nodo;
+        } else if (nodo.getIndex() > getDocuments()[temp2].getIndex()) {
+            getDocuments()[pointer] = getDocuments()[temp2];
+            getDocuments()[temp2] = nodo;
+        }
+    }
+    
+    public NodoArray deleteRoot() {
+        NodoArray nodo = getDocuments()[0];
+        NodoArray root = getDocuments()[1];
         
+        return nodo;
     }
 }
