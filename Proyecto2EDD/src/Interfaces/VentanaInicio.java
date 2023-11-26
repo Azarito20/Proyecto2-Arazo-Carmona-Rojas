@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author pjroj
@@ -17,11 +20,38 @@ public class VentanaInicio extends javax.swing.JFrame {
     public VentanaInicio() {
         initComponents();
         setSize(720,440);
-        setResizable(false);
+        //setResizable(false);
         setTitle("Inicio - Cargar archivos");
         setLocationRelativeTo(null);
         this.repaint();
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        
+        Runnable runnable;
+        // Crear un hilo que se ejecuta cada segundo
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    // Obtener la fecha y hora actuales
+                    LocalDateTime now = LocalDateTime.now();
 
+                    // Formatear la fecha y hora con el formatter
+                    String time = now.format(formatter);
+                    clock.setText(time);
+                    // Esperar un segundo
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        // Iniciar el hilo
+        Thread thread = new Thread(runnable);
+        thread.start();
 
     }
 
@@ -37,13 +67,21 @@ public class VentanaInicio extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
-        ImpressionButton = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
-        UsersControllerButton = new javax.swing.JButton();
-        documentsButton = new javax.swing.JButton();
         Fondo1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        clock = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         Fondo2 = new javax.swing.JPanel();
+        ImpressionButton = new javax.swing.JButton();
+        UsersControllerButton = new javax.swing.JButton();
+        documentsButton = new javax.swing.JButton();
+        ImpressionUserButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -53,15 +91,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabel1.setText("Elija lo que desea hacer a continuación");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 230, 30));
 
-        ImpressionButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ImpressionButton.setText("Ver cola de impresión");
-        ImpressionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImpressionButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ImpressionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 290, 60));
-
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +99,36 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         getContentPane().add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 50, -1));
 
+        Fondo1.setBackground(new java.awt.Color(153, 255, 255));
+        Fondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel3.setText("Cola de Impresión");
+        Fondo1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 220, 40));
+        jLabel3.getAccessibleContext().setAccessibleDescription("");
+
+        clock.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        clock.setText("00:00:00");
+        Fondo1.add(clock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel7.setText("Hora:");
+        Fondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        Fondo1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
+
+        getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 440));
+
+        Fondo2.setBackground(new java.awt.Color(102, 153, 255));
+        Fondo2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ImpressionButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ImpressionButton.setText("Eliminar documento de la Cola");
+        ImpressionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImpressionButtonActionPerformed(evt);
+            }
+        });
+        Fondo2.add(ImpressionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 290, 50));
+
         UsersControllerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         UsersControllerButton.setText("Adminstrar usuarios");
         UsersControllerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +136,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                 UsersControllerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(UsersControllerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 290, 60));
+        Fondo2.add(UsersControllerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 290, 50));
 
         documentsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         documentsButton.setText("Adminstrar documentos del usuario");
@@ -86,21 +145,34 @@ public class VentanaInicio extends javax.swing.JFrame {
                 documentsButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(documentsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 290, 60));
+        Fondo2.add(documentsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 290, 50));
 
-        Fondo1.setBackground(new java.awt.Color(153, 255, 255));
-        Fondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ImpressionUserButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ImpressionUserButton1.setText("Ver cola de impresión y usuarios");
+        ImpressionUserButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImpressionUserButton1ActionPerformed(evt);
+            }
+        });
+        Fondo2.add(ImpressionUserButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 290, 50));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel3.setText("Cola de Impresión");
-        Fondo1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 220, 40));
-        jLabel3.getAccessibleContext().setAccessibleDescription("");
-
-        getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 440));
-
-        Fondo2.setBackground(new java.awt.Color(102, 153, 255));
-        Fondo2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(Fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 390, 440));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel2.setText("Elija lo que desea hacer a continuación");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 230, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel4.setText("Elija lo que desea hacer a continuación");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 230, 30));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel5.setText("Elija lo que desea hacer a continuación");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 230, 30));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel6.setText("Elija lo que desea hacer a continuación");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 230, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,6 +197,12 @@ public class VentanaInicio extends javax.swing.JFrame {
         documentcontroller.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_documentsButtonActionPerformed
+
+    private void ImpressionUserButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpressionUserButton1ActionPerformed
+        Vista siempre = new Vista();
+        siempre.setVisible(true);
+        
+    }//GEN-LAST:event_ImpressionUserButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,12 +244,20 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JPanel Fondo1;
     private javax.swing.JPanel Fondo2;
     private javax.swing.JButton ImpressionButton;
+    private javax.swing.JButton ImpressionUserButton1;
     private javax.swing.JButton UsersControllerButton;
+    private javax.swing.JLabel clock;
     private javax.swing.JButton documentsButton;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 
     private void setRetavible(boolean b) {

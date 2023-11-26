@@ -5,6 +5,8 @@
  */
 package proyecto2edd;
 
+import javax.swing.JOptionPane;
+
 public class UserList {
     
     private UserNodo head;
@@ -49,8 +51,26 @@ public class UserList {
         length++;
     }
     
-//     public void DeleteAtIndex(){
-//     
-//     }
+        
+    public UserNodo deleteAtName(User element) {
+        UserNodo nodo = new UserNodo(element);
+        if(isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La lista de usuarios está vacia");
+            return null;
+        } else{
+            UserNodo pointer = getHead();
+            while (pointer != nodo) {
+                pointer = pointer.getNext();
+                }
+            UserNodo temp = pointer.getNext();
+            pointer.setNext(temp.getNext());
+            temp.setNext(null);
+            length--;
+            return temp;
 
-}
+            }
+        }
+        
+    }
+
+

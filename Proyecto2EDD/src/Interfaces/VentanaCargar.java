@@ -6,9 +6,15 @@
 package Interfaces;
 
 import funciones.Global;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import proyecto2edd.User;
+import proyecto2edd.UserList;
 
 /**
  *
@@ -26,6 +32,35 @@ public class VentanaCargar extends javax.swing.JFrame {
         setTitle("Inicio - Cargar archivos");
         setLocationRelativeTo(null);
         this.repaint();
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        
+        Runnable runnable;
+        // Crear un hilo que se ejecuta cada segundo
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    // Obtener la fecha y hora actuales
+                    LocalDateTime now = LocalDateTime.now();
+
+                    // Formatear la fecha y hora con el formatter
+                    String time = now.format(formatter);
+                    clock.setText(time);
+                    // Esperar un segundo
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        // Iniciar el hilo
+        Thread thread = new Thread(runnable);
+        thread.start();
+        
     }
 
     /**
@@ -41,6 +76,8 @@ public class VentanaCargar extends javax.swing.JFrame {
         Exit = new javax.swing.JButton();
         Fondo1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        clock = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         select_csv = new javax.swing.JButton();
         Fondo2 = new javax.swing.JPanel();
         nextpage = new javax.swing.JButton();
@@ -66,6 +103,13 @@ public class VentanaCargar extends javax.swing.JFrame {
         jLabel3.setText("Cola de Impresión");
         Fondo1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 220, 40));
         jLabel3.getAccessibleContext().setAccessibleDescription("");
+
+        clock.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        clock.setText("00:00:00");
+        Fondo1.add(clock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel7.setText("Hora:");
+        Fondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 440));
 
@@ -110,7 +154,7 @@ public class VentanaCargar extends javax.swing.JFrame {
             VentanaInicio menu = new VentanaInicio();
             menu.setVisible(true);
             this.dispose();
-            //FALTA EL CODIGO PARA LEERLO, USAR GLOBAL//
+
         }
     }//GEN-LAST:event_nextpageActionPerformed
 
@@ -124,8 +168,47 @@ public class VentanaCargar extends javax.swing.JFrame {
         if (result == JFileChooser.APPROVE_OPTION) {
             Global.setFile(file.getSelectedFile());
         JOptionPane.showMessageDialog(null, "Su archivo a sido cargado con exito, haga click en 'CONTINUAR'");
-        //FALTA EL CODIGO PARA LEERLO//
         
+//    //CODIGO PARA LEERLO//
+//    String filePath = Global.getFile().getAbsolutePath();
+//        UserList userlist = new UserList();
+//        String linea = "";
+//        String separador = ";";
+//
+//        try {
+//            // Crear un objeto BufferedReader para leer el archivo
+//            BufferedReader br = new BufferedReader(new FileReader(filePath));
+//
+//            // Leer la primera línea del archivo (encabezado)
+//            linea = br.readLine();
+//
+//            // Leer las siguientes líneas del archivo (datos)
+//            while ((linea = br.readLine()) != null) {
+//                // Dividir la línea por el separador y guardar los campos en un arreglo
+//                String[] campos = linea.split(separador);
+//
+//                // Crear un objeto Usuario con los campos leídos
+//                User usuario = new User(campos[0], campos[1],nnull);
+//
+//                // Agregar el objeto Usuario a la lista de usuarios
+//                usuarios.add(usuario);
+//            }
+//
+//            // Cerrar el objeto BufferedReader
+//            br.close();
+//
+//            // Mostrar por consola el número de usuarios leídos
+//            System.out.println("Se han leído " + usuarios.size() + " usuarios del archivo " + archivo);
+//
+//            // Recorrer la lista de usuarios y mostrar sus datos por consola
+//            for (Usuario u : usuarios) {
+//                u.mostrar();
+//            }
+//
+//            } catch (IOException e) {
+//                // Mostrar por consola el mensaje de la excepción
+//                System.out.println("Error al leer el archivo: " + e.getMessage());
+//            }    
         }
     }//GEN-LAST:event_select_csvActionPerformed
 
@@ -169,8 +252,10 @@ public class VentanaCargar extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JPanel Fondo1;
     private javax.swing.JPanel Fondo2;
+    private javax.swing.JLabel clock;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JButton nextpage;
     private javax.swing.JButton select_csv;
     // End of variables declaration//GEN-END:variables

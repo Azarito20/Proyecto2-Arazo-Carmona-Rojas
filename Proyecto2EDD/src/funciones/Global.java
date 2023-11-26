@@ -17,7 +17,7 @@ public class Global {
     public static File getFile() {
         return file;
     }
-
+    
     public static void setFile(File file) {
         Global.file = file;
     }
