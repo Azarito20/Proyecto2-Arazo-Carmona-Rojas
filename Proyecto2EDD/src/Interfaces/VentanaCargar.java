@@ -37,12 +37,15 @@ public class VentanaCargar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         Exit = new javax.swing.JButton();
         Fondo1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         select_csv = new javax.swing.JButton();
         Fondo2 = new javax.swing.JPanel();
         nextpage = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -166,6 +169,7 @@ public class VentanaCargar extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JPanel Fondo1;
     private javax.swing.JPanel Fondo2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton nextpage;
     private javax.swing.JButton select_csv;

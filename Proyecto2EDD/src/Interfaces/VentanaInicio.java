@@ -21,6 +21,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         setTitle("Inicio - Cargar archivos");
         setLocationRelativeTo(null);
         this.repaint();
+
+
     }
 
     /**
@@ -32,11 +34,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ImpressionButton = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        UsersControllerButton = new javax.swing.JButton();
+        documentsButton = new javax.swing.JButton();
         Fondo1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Fondo2 = new javax.swing.JPanel();
@@ -49,14 +53,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         jLabel1.setText("Elija lo que desea hacer a continuación");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 230, 30));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Ver cola de impresión");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ImpressionButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ImpressionButton.setText("Ver cola de impresión");
+        ImpressionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ImpressionButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 290, 60));
+        getContentPane().add(ImpressionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 290, 60));
 
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -66,23 +70,23 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         getContentPane().add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 50, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Adminstrar usuarios");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        UsersControllerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        UsersControllerButton.setText("Adminstrar usuarios");
+        UsersControllerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                UsersControllerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 290, 60));
+        getContentPane().add(UsersControllerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 290, 60));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Adminstrar documentos del usuario");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        documentsButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        documentsButton.setText("Adminstrar documentos del usuario");
+        documentsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                documentsButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 290, 60));
+        getContentPane().add(documentsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 290, 60));
 
         Fondo1.setBackground(new java.awt.Color(153, 255, 255));
         Fondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,22 +105,26 @@ public class VentanaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ImpressionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImpressionButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ImpressionButtonActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void UsersControllerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersControllerButtonActionPerformed
+        VentanaUsers usercontroller = new VentanaUsers();
+        usercontroller.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_UsersControllerButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void documentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentsButtonActionPerformed
+        VentanaDocument documentcontroller = new VentanaDocument();
+        documentcontroller.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_documentsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,9 +165,11 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JPanel Fondo1;
     private javax.swing.JPanel Fondo2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton ImpressionButton;
+    private javax.swing.JButton UsersControllerButton;
+    private javax.swing.JButton documentsButton;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
