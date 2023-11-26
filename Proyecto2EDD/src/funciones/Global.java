@@ -6,6 +6,7 @@
 package funciones;
 
 import java.io.File;
+import proyecto2edd.UserList;
 
 /**
  *
@@ -13,6 +14,15 @@ import java.io.File;
  */
 public class Global {
     private static File file;
+    private static UserList userlist;
+
+    public static UserList getUserlist() {
+        return userlist;
+    }
+
+    public static void setUserlist(UserList list) {
+        Global.userlist = list;
+    }
 
     public static File getFile() {
         return file;

@@ -12,7 +12,7 @@ public class UserList {
     private UserNodo head;
     private int length;
 
-    public UserList(UserNodo head, int length) {
+    public UserList() {
         this.head = null;
         this.length = 0;
     }
@@ -36,8 +36,9 @@ public class UserList {
     public boolean isEmpty(){
         return getHead() == null;
     }
-    
-    public void insertFinal(User element) {
+   
+    //Para insertar los usuarios en la lista de usuarios
+    public void insertUser(User element) {
         UserNodo nodo = new UserNodo(element);
         if (isEmpty()){
             setHead(nodo);
@@ -51,7 +52,7 @@ public class UserList {
         length++;
     }
     
-        
+    //Para Eliminar los usuarios en la lista de usuarios en base a su nombre  
     public UserNodo deleteAtName(User element) {
         UserNodo nodo = new UserNodo(element);
         if(isEmpty()) {
@@ -70,7 +71,17 @@ public class UserList {
 
             }
         }
-        
+    
+    public void print() {
+        UserNodo pointer = getHead();
+        while (pointer != null) {
+            System.out.print(" [ " + pointer.getUser().getUsername() + ";" + pointer.getUser().getPriorityType() + ";" + pointer.getUser().getDocuments() +" ] ");
+            pointer = pointer.getNext();
+        }
     }
+
+    
+}
+
 
 

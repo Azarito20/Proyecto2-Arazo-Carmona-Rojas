@@ -17,7 +17,7 @@ public class Vista extends javax.swing.JFrame {
     public Vista() {
 
         initComponents();
-        setSize(510,380);
+        setSize(549,420);
         //setResizable(false);
         setTitle("Vista de usuarios y cola");
         setLocationRelativeTo(null);
@@ -38,12 +38,15 @@ public class Vista extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        Exit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        Exit2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        Exit1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,6 +63,14 @@ public class Vista extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("LISTA USUARIOS");
         jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel6.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 50, -1));
 
         jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 70));
 
@@ -99,20 +110,26 @@ public class Vista extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 15, 37, -1));
 
+        Exit2.setText("X");
+        Exit2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(Exit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 50, -1));
+
         Vista.addTab("Cola de impresión", jPanel5);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 387, Short.MAX_VALUE)
-        );
+        Exit1.setText("X");
+        Exit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 50, -1));
 
         Vista.addTab("Estructura de impresión", jPanel3);
 
@@ -120,6 +137,18 @@ public class Vista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_ExitActionPerformed
+
+    private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Exit1ActionPerformed
+
+    private void Exit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Exit2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +186,9 @@ public class Vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Exit;
+    private javax.swing.JButton Exit1;
+    private javax.swing.JButton Exit2;
     private javax.swing.JTabbedPane Vista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -8,6 +8,7 @@ package Interfaces;
 import funciones.Global;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JFileChooser;
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import proyecto2edd.User;
 import proyecto2edd.UserList;
+import proyecto2edd.UserNodo;
 
 /**
  *
@@ -168,48 +170,53 @@ public class VentanaCargar extends javax.swing.JFrame {
         if (result == JFileChooser.APPROVE_OPTION) {
             Global.setFile(file.getSelectedFile());
         JOptionPane.showMessageDialog(null, "Su archivo a sido cargado con exito, haga click en 'CONTINUAR'");
-        
-//    //CODIGO PARA LEERLO//
-//    String filePath = Global.getFile().getAbsolutePath();
-//        UserList userlist = new UserList();
-//        String linea = "";
-//        String separador = ";";
-//
-//        try {
-//            // Crear un objeto BufferedReader para leer el archivo
-//            BufferedReader br = new BufferedReader(new FileReader(filePath));
-//
-//            // Leer la primera línea del archivo (encabezado)
-//            linea = br.readLine();
-//
-//            // Leer las siguientes líneas del archivo (datos)
-//            while ((linea = br.readLine()) != null) {
-//                // Dividir la línea por el separador y guardar los campos en un arreglo
-//                String[] campos = linea.split(separador);
-//
-//                // Crear un objeto Usuario con los campos leídos
-//                User usuario = new User(campos[0], campos[1],nnull);
-//
-//                // Agregar el objeto Usuario a la lista de usuarios
-//                usuarios.add(usuario);
-//            }
-//
-//            // Cerrar el objeto BufferedReader
-//            br.close();
-//
-//            // Mostrar por consola el número de usuarios leídos
-//            System.out.println("Se han leído " + usuarios.size() + " usuarios del archivo " + archivo);
-//
-//            // Recorrer la lista de usuarios y mostrar sus datos por consola
-//            for (Usuario u : usuarios) {
-//                u.mostrar();
-//            }
-//
-//            } catch (IOException e) {
-//                // Mostrar por consola el mensaje de la excepción
-//                System.out.println("Error al leer el archivo: " + e.getMessage());
-//            }    
         }
+        //CODIGO PARA LEERLO//
+        String filePath = Global.getFile().getAbsolutePath();
+        UserList userList = new UserList();
+        String linea = "";
+        String separador = ";";
+
+        try {
+            // Crear un objeto BufferedReader para leer el archivo
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+
+            // Leer la primera línea del archivo (encabezado)
+            linea = br.readLine();
+
+            // Leer las siguientes líneas del archivo (datos)
+            while ((linea = br.readLine()) != null) {
+                if (linea.equals("usuario;tipo")){
+                    continue;  // Saltamos esta línea para no guardar "usuario;tipo"
+                }else{
+                // Dividir la línea por el separador y guardar los campos en un arreglo
+                String[] campos = linea.split(separador);
+
+                // Crear un objeto User con los campos leídos
+                User usuario = new User(campos[0], campos[1],null);
+
+                // Agregar el objeto Usuario a la lista de usuarios
+                userList.insertUser(usuario);
+                }
+            }
+            
+            Global.setUserlist(userList);
+            // Cerrar el objeto BufferedReader
+            br.close();
+
+            //userList.print();
+            UserNodo pointer = userList.getHead();
+            while (pointer != null) {
+                System.out.print(" [ " + pointer.getUser().getUsername() + ";" + pointer.getUser().getPriorityType() + ";" + pointer.getUser().getDocuments() +" ] ");
+                pointer = pointer.getNext();
+                
+            }
+
+        } catch (IOException e) {
+            // Mostrar por consola el mensaje de la excepción
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }    
+    
     }//GEN-LAST:event_select_csvActionPerformed
 
     private boolean FileIsEmpty(){
