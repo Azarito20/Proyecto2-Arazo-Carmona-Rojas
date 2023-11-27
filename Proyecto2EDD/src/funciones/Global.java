@@ -6,6 +6,7 @@
 package funciones;
 
 import java.io.File;
+import proyecto2edd.BinaryHeap;
 import proyecto2edd.UserList;
 
 /**
@@ -15,6 +16,15 @@ import proyecto2edd.UserList;
 public class Global {
     private static File file;
     private static UserList userlist;
+    private static BinaryHeap bh;
+
+    public static BinaryHeap getBh() {
+        return bh;
+    }
+
+    public static void setBh(BinaryHeap bh) {
+        Global.bh = bh;
+    }
 
     public static UserList getUserlist() {
         return userlist;

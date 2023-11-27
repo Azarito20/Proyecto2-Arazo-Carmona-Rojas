@@ -6,6 +6,8 @@
 package Interfaces;
 
 import funciones.Global;
+import javax.swing.JOptionPane;
+import proyecto2edd.BinaryHeap;
 import proyecto2edd.UserList;
 import proyecto2edd.UserNodo;
 
@@ -141,7 +143,17 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarCola1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarCola1ActionPerformed
-        //waaaaaa
+        BinaryHeap binaryheap = Global.getBh();
+        if (binaryheap.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "EL MONTÍCULO ESTÁ VACÍO");
+        }
+        else
+        {
+            String message = binaryheap.queueState();
+            JOptionPane.showMessageDialog(null, message);
+        }
+                
     }//GEN-LAST:event_mostrarCola1ActionPerformed
 
     private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed

@@ -89,4 +89,9 @@ public class BinaryHeap {
             i++;
         }
     }
+    
+    public boolean isEmpty()
+    {
+        return getSize()==0;
+    }
 }

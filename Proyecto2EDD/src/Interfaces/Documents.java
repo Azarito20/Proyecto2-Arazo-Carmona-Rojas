@@ -5,6 +5,10 @@
  */
 package Interfaces;
 
+import funciones.Global;
+import javax.swing.JOptionPane;
+import proyecto2edd.Document;
+
 /**
  *
  * @author pjroj
@@ -129,7 +133,11 @@ public class Documents extends javax.swing.JFrame {
     }//GEN-LAST:event_GoprintButtonActionPerformed
 
     private void documentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentActionPerformed
-        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog(null, "Nombre del documento: ");
+        String pages = JOptionPane.showInputDialog(null, "Número de páginas: ");
+        String type = JOptionPane.showInputDialog(null, "Tipo de documento: ");
+        Document document = new Document(name, pages, type);
+        Global.getBh().insertNodo(document);
     }//GEN-LAST:event_documentActionPerformed
 
     private void EliminateUsersButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminateUsersButton1ActionPerformed
