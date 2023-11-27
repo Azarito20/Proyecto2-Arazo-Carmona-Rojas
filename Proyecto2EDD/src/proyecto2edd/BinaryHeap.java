@@ -71,4 +71,12 @@ public class BinaryHeap {
         rearrangeDown(0);
         return nodo;
     }
+    
+    public void print() {
+        int i = 0;
+        while (i < getSize()) {
+            System.out.println("[" + documents[i].getIndex() + "]");
+            i++;
+        }
+    }
 }
