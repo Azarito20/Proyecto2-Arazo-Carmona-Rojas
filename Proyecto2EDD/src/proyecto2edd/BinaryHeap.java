@@ -38,38 +38,45 @@ public class BinaryHeap {
         nodo.setIndex(nodo.getIndex() + getSize());
         size++;
         if ( getSize() -1 != 0) {
-            rearrangeUp(nodo, getSize() -1);
+            rearrangeUp(getSize() -1);
         }
     }
     
-    public void rearrangeUp(Object element, int index) {
-        NodoArray nodo = new NodoArray(element);
-        int pointer = index;
+    public void rearrangeUp(int index) {
+        NodoArray pointer = documents[index];
         int temp = (index-1)/2;
-        while (nodo.getIndex() < getDocuments()[temp].getIndex()) {
-            getDocuments()[pointer] = getDocuments()[temp];
-            getDocuments()[temp] = nodo;
+        while (documents[index].getIndex() < documents[temp].getIndex()) {
+            documents[index] = documents[temp];
+            documents[temp] = pointer;
         }
     }
     
-    public void rearrangeDown (Object element, int index) {
-        NodoArray nodo = new NodoArray(element);
-        int pointer = index;
+    public void rearrangeDown (int index) {
+        NodoArray pointer = documents[index];
         int temp1 = (index*2)+1;
-        int temp2 = (index*2)+1;
-        if (nodo.getIndex() > getDocuments()[temp1].getIndex()) {
-            getDocuments()[pointer] = getDocuments()[temp1];
-            getDocuments()[temp1] = nodo;
-        } else if (nodo.getIndex() > getDocuments()[temp2].getIndex()) {
-            getDocuments()[pointer] = getDocuments()[temp2];
-            getDocuments()[temp2] = nodo;
+        int temp2 = (index*2)+2;
+        if (documents[index].getIndex() > documents[temp1].getIndex()) {
+            documents[index] = documents[temp1];
+            documents[temp1] = pointer;
+        } else if (documents[index].getIndex() > documents[temp2].getIndex()) {
+            documents[index] = documents[temp2];
+            documents[temp2] = pointer;
         }
     }
     
     public NodoArray deleteRoot() {
-        NodoArray nodo = getDocuments()[0];
-        NodoArray root = getDocuments()[1];
-        
+        NodoArray nodo = documents [0];
+        documents [0] = documents [size -1];
+        size--;
+        rearrangeDown(0);
         return nodo;
+    }
+    
+    public void print() {
+        int i = 0;
+        while (i < getSize()) {
+            System.out.println("[" + documents[i].getIndex() + "]");
+            i++;
+        }
     }
 }
