@@ -2,9 +2,9 @@
 package proyecto2edd;
 
 
-public class main {
+public class main{
 
-    public static void main() {
+    public static void main(String[] args) {
         BinaryHeap monticulo = new BinaryHeap();
         monticulo.insertNodo(50);
         monticulo.insertNodo(51);
