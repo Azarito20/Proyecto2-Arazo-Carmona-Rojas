@@ -52,11 +52,9 @@ public class Vista extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        Exit2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         Exit1 = new javax.swing.JButton();
+        mostrarCola1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,20 +114,6 @@ public class Vista extends javax.swing.JFrame {
 
         Vista.addTab("Usuarios", jPanel4);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 15, 37, -1));
-
-        Exit2.setText("X");
-        Exit2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Exit2ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(Exit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 50, -1));
-
-        Vista.addTab("Cola de impresión", jPanel5);
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -141,6 +125,14 @@ public class Vista extends javax.swing.JFrame {
         });
         jPanel3.add(Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 50, -1));
 
+        mostrarCola1.setText("Mostrar cola");
+        mostrarCola1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarCola1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(mostrarCola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 40));
+
         Vista.addTab("Estructura de impresión", jPanel3);
 
         getContentPane().add(Vista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 420));
@@ -148,17 +140,17 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_ExitActionPerformed
+    private void mostrarCola1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarCola1ActionPerformed
+        //waaaaaa
+    }//GEN-LAST:event_mostrarCola1ActionPerformed
 
     private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_Exit1ActionPerformed
 
-    private void Exit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit2ActionPerformed
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         this.dispose();
-    }//GEN-LAST:event_Exit2ActionPerformed
+    }//GEN-LAST:event_ExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,17 +190,15 @@ public class Vista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Exit;
     private javax.swing.JButton Exit1;
-    private javax.swing.JButton Exit2;
     private javax.swing.JTabbedPane Vista;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton mostrarCola1;
     // End of variables declaration//GEN-END:variables
 }
