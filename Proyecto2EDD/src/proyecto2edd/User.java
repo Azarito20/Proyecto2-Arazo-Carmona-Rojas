@@ -7,9 +7,7 @@ public class User {
     private String priorityType;
     private DocumentList documents;
 
-
-    public User(String username,String priorityType,DocumentList documents) {
-
+    public User(String username, String priorityType, DocumentList documents) {
         this.username = username;
         this.priorityType = priorityType;
         this.documents = documents;
@@ -38,5 +36,6 @@ public class User {
     public void setDocuments(DocumentList documents) {
         this.documents = documents;
     }
-
+    
+    
 }
