@@ -27,7 +27,7 @@ public class BinaryHeap {
         this.size = size;
     }
 
-    public void insertNodo(Object element) {
+    public void insertNodo(Document element) {
         NodoArray nodo = new NodoArray(element);
         NodoArray[] newArray = new NodoArray[getSize() + 1];
         for (int i=0; i < getSize(); i++) {
@@ -70,6 +70,16 @@ public class BinaryHeap {
         size--;
         rearrangeDown(0);
         return nodo;
+    }
+    
+    public String queueState() {
+        int i = 0;
+        String state = ("[" + documents[i].getName() + "]");
+        while (i < getSize()) {
+            state += ("[" + documents[i].getName() + "]");
+            i++;
+        }
+        return state;
     }
     
     public void print() {

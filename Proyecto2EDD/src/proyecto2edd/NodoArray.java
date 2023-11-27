@@ -3,19 +3,21 @@ package proyecto2edd;
 
 
 public class NodoArray {
-    private Object element;
+    private Document element;
     private int index;
+    private String name;
 
-    public NodoArray(Object element) {
+    public NodoArray(Document element) {
         this.element = element;
         this.index = 50;
+        this.name = element.getName();
     }
 
-    public Object getElement() {
+    public Document getElement() {
         return element;
     }
 
-    public void setElement(Object element) {
+    public void setElement(Document element) {
         this.element = element;
     }
 
@@ -25,6 +27,14 @@ public class NodoArray {
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     
