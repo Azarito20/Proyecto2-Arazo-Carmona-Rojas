@@ -16,7 +16,7 @@ public class VentanaUsers extends javax.swing.JFrame {
      */
     public VentanaUsers() {
         initComponents();
-        setSize(438, 440);
+        setSize(438, 553);
         setResizable(false);
         setTitle("Administrar Usuarios");
         setLocationRelativeTo(null);
