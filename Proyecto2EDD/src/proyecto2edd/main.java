@@ -10,10 +10,5 @@ public class main {
 
         VentanaCargar cargar = new VentanaCargar();
         cargar.setVisible(true);
-
-        BinaryHeap monticulo = new BinaryHeap();
-        monticulo.insertNodo(34);
-        monticulo.print();
-
     }
 }
