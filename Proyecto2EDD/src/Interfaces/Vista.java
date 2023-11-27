@@ -5,6 +5,10 @@
  */
 package Interfaces;
 
+import funciones.Global;
+import proyecto2edd.UserList;
+import proyecto2edd.UserNodo;
+
 /**
  *
  * @author pjroj
@@ -18,10 +22,16 @@ public class Vista extends javax.swing.JFrame {
 
         initComponents();
         setSize(549,420);
-        //setResizable(false);
         setTitle("Vista de usuarios y cola");
         setLocationRelativeTo(null);
         this.repaint();
+//        
+//        UserList userList = Global.getUserlist();
+//        UserNodo pointer = userList.getHead();
+//        while (pointer != null) {
+//            System.out.print(" [ " + pointer.getUser().getUsername() + ";" + pointer.getUser().getPriorityType() + ";" + pointer.getUser().getDocuments() +" ] ");
+//            pointer = pointer.getNext();
+        
     }
 
     /**

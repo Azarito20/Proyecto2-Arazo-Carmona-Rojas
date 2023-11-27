@@ -16,7 +16,7 @@ public class VentanaUsers extends javax.swing.JFrame {
      */
     public VentanaUsers() {
         initComponents();
-        setSize(340,440);
+        setSize(438, 440);
         setResizable(false);
         setTitle("Administrar Usuarios");
         setLocationRelativeTo(null);
@@ -50,14 +50,14 @@ public class VentanaUsers extends javax.swing.JFrame {
 
         Fondo1.setBackground(new java.awt.Color(153, 255, 255));
         Fondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 440));
+        getContentPane().add(Fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 560));
 
         Fondo2.setBackground(new java.awt.Color(102, 153, 255));
         Fondo2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel3.setText("Usuarios");
-        Fondo2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 100, 40));
+        Fondo2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, 40));
 
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -65,11 +65,11 @@ public class VentanaUsers extends javax.swing.JFrame {
                 ExitActionPerformed(evt);
             }
         });
-        Fondo2.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 50, -1));
+        Fondo2.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 50, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel4.setText("Administración de");
-        Fondo2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 220, 40));
+        Fondo2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 220, 40));
 
         ReturnButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ReturnButton.setText("Volver al menú de inicio");
@@ -78,7 +78,7 @@ public class VentanaUsers extends javax.swing.JFrame {
                 ReturnButtonActionPerformed(evt);
             }
         });
-        Fondo2.add(ReturnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 200, 30));
+        Fondo2.add(ReturnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 200, 30));
 
         EliminateUsersButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         EliminateUsersButton.setText("Eliminar usuario");
@@ -87,7 +87,7 @@ public class VentanaUsers extends javax.swing.JFrame {
                 EliminateUsersButtonActionPerformed(evt);
             }
         });
-        Fondo2.add(EliminateUsersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 180, 40));
+        Fondo2.add(EliminateUsersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 150, 30));
 
         UsersButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         UsersButton4.setText("Crear usuario");
@@ -96,9 +96,9 @@ public class VentanaUsers extends javax.swing.JFrame {
                 UsersButton4ActionPerformed(evt);
             }
         });
-        Fondo2.add(UsersButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 180, 40));
+        Fondo2.add(UsersButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 150, 30));
 
-        getContentPane().add(Fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 440));
+        getContentPane().add(Fondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

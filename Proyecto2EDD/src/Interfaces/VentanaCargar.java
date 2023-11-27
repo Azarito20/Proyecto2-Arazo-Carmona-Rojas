@@ -204,7 +204,6 @@ public class VentanaCargar extends javax.swing.JFrame {
             // Cerrar el objeto BufferedReader
             br.close();
 
-            //userList.print();
             UserNodo pointer = userList.getHead();
             while (pointer != null) {
                 System.out.print(" [ " + pointer.getUser().getUsername() + ";" + pointer.getUser().getPriorityType() + ";" + pointer.getUser().getDocuments() +" ] ");
